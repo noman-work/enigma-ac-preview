@@ -349,3 +349,9 @@ h3 { font-size: 1.1875rem; font-weight: 700; line-height: 1.3; }
 }
 
 @media (min-width: 1024px) { .hero h1 .keep { white-space: nowrap; } }
+
+/* Client colour (Nov 2026): "Commercial & Residential" and Get a Quote buttons in #0b2c4a */
+:root { --quote: #0b2c4a; --quote-hover: #174a75; }
+.hero__eyebrow { color: var(--quote); }
+.btn--primary { background: var(--quote); color: var(--white); }
+.btn--primary:hover { background: var(--quote-hover); }
