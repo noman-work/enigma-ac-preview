@@ -127,3 +127,27 @@ p { margin: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
+
+/* ---------- Laptop & desktop: header + hero + credentials strip fit the first screen ---------- */
+@media (min-width: 1024px) {
+  :root { --trust-h: 110px; }
+  .hero { min-height: max(400px, min(720px, calc(100vh - var(--header-h) - var(--trust-h) - 1px))); }
+  @supports (height: 100svh) {
+    .hero { min-height: max(400px, min(720px, calc(100svh - var(--header-h) - var(--trust-h) - 1px))); }
+  }
+  .trust__list { min-height: var(--trust-h); align-items: center; padding-block: 12px; }
+}
+/* Shorter laptop screens (e.g. 1366×768, 1280×720): tighten spacing so nothing is cut off */
+@media (min-width: 1024px) and (max-height: 820px) {
+  :root { --header-h: 80px; --trust-h: 88px; }
+  .brand img { width: 150px; }
+  .hero__inner { padding-block: 28px; }
+  .hero__card { padding: 26px 30px 28px; }
+  .hero__eyebrow { margin-bottom: 10px; font-size: 1.125rem; }
+  .hero h1 { font-size: clamp(2.125rem, 3vw, 2.75rem); }
+  .hero__lead { margin: 14px 0 22px; font-size: 1.0625rem; }
+  .hero .btn--lg { min-height: 54px; font-size: 1.0625rem; }
+  .trust .icon-circle, .trust__icon { width: 52px; height: 52px; }
+}
+
+@media (min-width: 1024px) { .hero h1 .keep { white-space: nowrap; } }
